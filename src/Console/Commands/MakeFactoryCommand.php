@@ -56,7 +56,7 @@ class MakeFactoryCommand extends AbstractMakeCommand
         $factoryPath = $this->modulePath("database/factories/{$name}.php");
         $this->ensureDirectory(dirname($factoryPath));
 
-        $stubPath = base_path('stubs/factory.stub');
+        $stubPath = $this->stubPath('factory.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

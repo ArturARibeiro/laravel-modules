@@ -45,9 +45,9 @@ class MakeEnumCommand extends AbstractMakeCommand
         $this->ensureDirectory(dirname($commandPath));
 
         $type = '';
-        $stubPath = base_path('stubs/enum.stub');
+        $stubPath = $this->stubPath('enum.stub');
         if ($this->option('string') || $this->option('int')) {
-            $stubPath = base_path('stubs/enum.backed.stub');
+            $stubPath = $this->stubPath('enum.backed.stub');
             $type = $this->option('string') ? 'string' : 'int';
         }
 

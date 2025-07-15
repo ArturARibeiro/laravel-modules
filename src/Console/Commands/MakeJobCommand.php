@@ -44,9 +44,9 @@ class MakeJobCommand extends AbstractMakeCommand
         $factoryPath = $this->modulePath("src/Jobs/{$name}.php");
         $this->ensureDirectory(dirname($factoryPath));
 
-        $stubPath = base_path('stubs/job.queued.stub');
+        $stubPath = $this->stubPath('job.queued.stub');
         if ($this->option('sync')) {
-            $stubPath = base_path('stubs/job.stub');
+            $stubPath = $this->stubPath('job.stub');
         }
 
         if (!File::exists($stubPath)) {

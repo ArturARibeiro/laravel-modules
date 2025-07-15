@@ -40,7 +40,7 @@ class MakeTestCommand extends AbstractMakeCommand
         $testPath = $this->modulePath("tests/{$name}.php");
         $this->ensureDirectory(dirname($testPath));
 
-        $stubPath = base_path('stubs/test.stub');
+        $stubPath = $this->stubPath('test.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

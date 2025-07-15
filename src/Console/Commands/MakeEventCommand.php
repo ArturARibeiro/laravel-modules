@@ -43,7 +43,7 @@ class MakeEventCommand extends AbstractMakeCommand
         $commandPath = $this->modulePath("src/Events/{$name}.php");
         $this->ensureDirectory(dirname($commandPath));
 
-        $stubPath = base_path('stubs/event.stub');
+        $stubPath = $this->stubPath('event.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

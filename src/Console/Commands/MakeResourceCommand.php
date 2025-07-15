@@ -51,9 +51,9 @@ class MakeResourceCommand extends AbstractMakeCommand
             $name .= 'Collection';
         }
 
-        $stubPath = base_path('stubs/resource.stub');
+        $stubPath = $this->stubPath('resource.stub');
         if (Str::endsWith($name, 'Collection')) {
-            $stubPath = base_path('stubs/resource-collection.stub');
+            $stubPath = $this->stubPath('resource-collection.stub');
         }
 
         if (!File::exists($stubPath)) {

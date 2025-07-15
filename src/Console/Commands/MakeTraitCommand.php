@@ -43,7 +43,7 @@ class MakeTraitCommand extends AbstractMakeCommand
         $traitPath = $this->modulePath("src/Traits/{$name}.php");
         $this->ensureDirectory(dirname($traitPath));
 
-        $stubPath = base_path('stubs/trait.stub');
+        $stubPath = $this->stubPath('trait.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

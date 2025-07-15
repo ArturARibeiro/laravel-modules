@@ -35,8 +35,8 @@ class MakeObserverCommand extends AbstractMakeCommand
         $this->ensureDirectory(dirname($observerPath));
 
         $stubPath = $model
-            ? base_path('stubs/observer.stub')
-            : base_path('stubs/observer.plain.stub');
+            ? $this->stubPath('observer.stub')
+            : $this->stubPath('observer.plain.stub');
 
         if (!File::exists($stubPath)) {
             if (!$silent) {

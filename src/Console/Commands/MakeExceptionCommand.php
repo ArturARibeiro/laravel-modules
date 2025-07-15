@@ -72,16 +72,14 @@ class MakeExceptionCommand extends AbstractMakeCommand
      */
     protected function resolveStubPath(): string
     {
-        $base = base_path('stubs');
-
         $render = $this->option('render');
         $report = $this->option('report');
 
         return match (true) {
-            $render && $report => "{$base}/exception-render-report.stub",
-            $render => "{$base}/exception-render.stub",
-            $report => "{$base}/exception-report.stub",
-            default => "{$base}/exception.stub",
+            $render && $report => $this->stubPath('exception-render-report.stub'),
+            $render => $this->stubPath('exception-render.stub'),
+            $report => $this->stubPath('exception-report.stub'),
+            default => $this->stubPath('exception.stub'),
         };
     }
 }

@@ -56,10 +56,10 @@ class MakeModelCommand extends AbstractMakeCommand
         $modelPath = $this->modulePath("src/Models/{$name}.php");
         $this->ensureDirectory(dirname($modelPath));
 
-        $stubPath = base_path('stubs/model.stub');
+        $stubPath = $this->stubPath('model.stub');
 
         if ($this->option('pivot')) {
-            $stubPath = base_path('stubs/model.pivot.stub');
+            $stubPath = $this->stubPath('model.pivot.stub');
         }
 
         if (!File::exists($stubPath)) {

@@ -55,7 +55,7 @@ class MakeControllerCommand extends AbstractMakeCommand
             $stubName .= '.api';
         }
 
-        $stubPath = base_path("stubs/{$stubName}.stub");
+        $stubPath = $this->stubPath('{$stubName}.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

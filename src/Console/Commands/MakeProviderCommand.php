@@ -43,7 +43,7 @@ class MakeProviderCommand extends AbstractMakeCommand
         $providerPath = $this->modulePath("src/Providers/{$name}.php");
         $this->ensureDirectory(dirname($providerPath));
 
-        $stubPath = base_path('stubs/provider.stub');
+        $stubPath = $this->stubPath('provider.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

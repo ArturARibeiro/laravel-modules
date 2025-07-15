@@ -42,7 +42,7 @@ class MakeSeederCommand extends AbstractMakeCommand
         $factoryPath = $this->modulePath("database/seeders/{$name}.php");
         $this->ensureDirectory(dirname($factoryPath));
 
-        $stubPath = base_path('stubs/seeder.stub');
+        $stubPath = $this->stubPath('seeder.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

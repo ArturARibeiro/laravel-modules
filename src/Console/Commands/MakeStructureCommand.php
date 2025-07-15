@@ -75,7 +75,7 @@ class MakeStructureCommand extends Command
 
     private function createBaseController(string $moduleName, string $modulePath): void
     {
-        $stubPath = base_path('stubs/scope.stub');
+        $stubPath = $this->stubPath('scope.stub');
 
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
@@ -94,7 +94,7 @@ class MakeStructureCommand extends Command
 
     private function createBaseTestCase(string $moduleName, string $modulePath): void
     {
-        $stubPath = base_path('stubs/test-case.stub');
+        $stubPath = $this->stubPath('test-case.stub');
 
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
@@ -112,7 +112,7 @@ class MakeStructureCommand extends Command
 
     private function createModuleServiceProvider(string $moduleName, string $modulePath): void
     {
-        $stubPath = base_path('stubs/provider.stub');
+        $stubPath = $this->stubPath('provider.stub');
 
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");

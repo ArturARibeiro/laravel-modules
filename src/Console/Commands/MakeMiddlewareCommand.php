@@ -42,7 +42,7 @@ class MakeMiddlewareCommand extends AbstractMakeCommand
         $factoryPath = $this->modulePath("src/Http/Middlewares/{$name}.php");
         $this->ensureDirectory(dirname($factoryPath));
 
-        $stubPath = base_path("stubs/middleware.stub");
+        $stubPath = $this->stubPath('middleware.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

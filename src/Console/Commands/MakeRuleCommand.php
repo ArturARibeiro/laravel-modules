@@ -43,7 +43,7 @@ class MakeRuleCommand extends AbstractMakeCommand
         $rulePath = $this->modulePath("src/Rules/{$name}.php");
         $this->ensureDirectory(dirname($rulePath));
 
-        $stubPath = base_path('stubs/rule.stub');
+        $stubPath = $this->stubPath('rule.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

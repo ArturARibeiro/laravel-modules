@@ -47,9 +47,9 @@ class MakePolicyCommand extends AbstractMakeCommand
         $policyPath = $this->modulePath("src/Policies/{$name}.php");
         $this->ensureDirectory(dirname($policyPath));
 
-        $stubPath = base_path('stubs/policy.plain.stub');
+        $stubPath = $this->stubPath('policy.plain.stub');
         if ($namespacedModel) {
-            $stubPath = base_path('stubs/policy.stub');
+            $stubPath = $this->stubPath('policy.stub');
         }
 
         if (!File::exists($stubPath)) {

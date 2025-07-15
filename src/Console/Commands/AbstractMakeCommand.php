@@ -189,4 +189,9 @@ abstract class AbstractMakeCommand extends Command
 
         return $moduleNamespace;
     }
+
+    protected function stubPath(string $stub): string
+    {
+        return __DIR__ . "/../../../stubs/$stub";
+    }
 }

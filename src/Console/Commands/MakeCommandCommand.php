@@ -43,7 +43,7 @@ class MakeCommandCommand extends AbstractMakeCommand
         $commandPath = $this->modulePath("src/Console/Commands/{$name}.php");
         $this->ensureDirectory(dirname($commandPath));
 
-        $stubPath = base_path('stubs/console.stub');
+        $stubPath = $this->stubPath('console.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

@@ -43,7 +43,7 @@ class MakeScopeCommand extends AbstractMakeCommand
         $scopePath = $this->modulePath("src/Scopes/{$name}.php");
         $this->ensureDirectory(dirname($scopePath));
 
-        $stubPath = base_path('stubs/scope.stub');
+        $stubPath = $this->stubPath('scope.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

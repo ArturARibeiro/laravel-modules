@@ -44,7 +44,7 @@ class MakeRequestCommand extends AbstractMakeCommand
         $requestPath = $this->modulePath("src/Http/Request/{$name}.php");
         $this->ensureDirectory(dirname($requestPath));
 
-        $stubPath = base_path('stubs/request.stub');
+        $stubPath = $this->stubPath('request.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

@@ -46,14 +46,14 @@ class MakeMigrationCommand extends AbstractMakeCommand
         $migrationPath = $this->modulePath("database/migrations/{$migrationName}");
         $this->ensureDirectory(dirname($migrationPath));
 
-        $stubPath = base_path('stubs/migration.stub');
+        $stubPath = $this->stubPath('migration.stub');
 
         if ($table) {
-            $stubPath = base_path('stubs/migration.update.stub');
+            $stubPath = $this->stubPath('migration.update.stub');
         }
 
         if ($this->isCreateMigration($name)) {
-            $stubPath = base_path('stubs/migration.create.stub');
+            $stubPath = $this->stubPath('migration.create.stub');
         }
 
         if (!File::exists($stubPath)) {

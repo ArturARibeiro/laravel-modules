@@ -27,7 +27,7 @@ class MakeChannelCommand extends AbstractMakeCommand
         $channelPath = $this->modulePath("src/Broadcasting/{$name}.php");
         $this->ensureDirectory(dirname($channelPath));
 
-        $stubPath = base_path('stubs/channel.stub');
+        $stubPath = $this->stubPath('channel.stub');
 
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");

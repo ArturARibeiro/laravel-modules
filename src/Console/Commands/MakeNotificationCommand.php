@@ -43,7 +43,7 @@ class MakeNotificationCommand extends AbstractMakeCommand
         $mailPath = $this->modulePath("src/Notifications/{$name}.php");
         $this->ensureDirectory(dirname($mailPath));
 
-        $stubPath = base_path('stubs/notification.stub');
+        $stubPath = $this->stubPath('notification.stub');
         if (!File::exists($stubPath)) {
             $this->error("Stub file not found: {$stubPath}");
             return self::FAILURE;

@@ -38,9 +38,9 @@ class MakeMailCommand extends AbstractMakeCommand
 
         // Determine stub path
         $stubPath = match (true) {
-            $markdown => base_path('stubs/markdown-mail.stub'),
-            $view     => base_path('stubs/view-mail.stub'),
-            default   => base_path('stubs/mail.stub'),
+            $markdown => $this->stubPath('markdown-mail.stub'),
+            $view     => $this->stubPath('view-mail.stub'),
+            default   => $this->stubPath('mail.stub'),
         };
 
         if (!File::exists($stubPath)) {
